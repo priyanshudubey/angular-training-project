@@ -1,0 +1,104 @@
+<head>
+  <link rel="stylesheet" href="patients.component.css">
+</head>
+<section class="vh-500 gradient-custom">
+<!-- <router-outlet></router-outlet> -->
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px; border-color: burlywood;">
+          <div class="card-body p-4 p-md-5">
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5">Add Patient</h1>
+            <hr>
+  <div class="row">
+    <div class="col-md-5">
+      <form [formGroup] = "form" (ngSubmit) = "onSubmit()">
+        <input type="hidden" formControlName="$key">
+        <div class="col-lg-80">
+          <div class="from-group">
+            <label>Name: </label>
+            <input formControlName="name" required class="form-control-lg" [ngClass]="{'is-invalid': submitted && formControls.name.errors}">
+            <div class="invalid-feedback" *ngIf="submitted && formControls.name.errors">
+              Name is required
+            </div>
+          </div>
+        </div>
+        <div class="from-group">
+          <label>Date of Birth: </label>
+          <input formControlName="dob" type="date" required class="form-control-lg"  [ngClass]="{'is-invalid': submitted && formControls.dob.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.dob.errors">
+            Date of birth is required
+          </div>
+        </div>
+        <br>
+        <div class="from-group">
+          <div class="col-lg-80">
+          <label>Gender: </label>
+          <select class="form-control-lg" formControlName="gender" required  [ngClass]="{'is-invalid': submitted && formControls.gender.errors}">
+            <option value="1" disabled>Gender</option>
+            <option value="2">Male </option>
+            <option value="3">Female </option>
+            <option value="4">Others </option>
+          </select>
+          <div class="invalid-feedback" *ngIf="submitted && formControls.gender.errors">
+            Gender is required
+          </div>
+        </div>
+        </div>
+        <br>
+        <div class="from-group">
+          <label>Blood Group: </label>
+          <select class="form-control-lg" formControlName="bloodGroup" required [ngClass]="{'is-invalid': submitted && formControls.bloodGroup.errors}">
+            <option value="1" disabled>Gender</option>
+            <option value="2">B+ </option>
+            <option value="2">B- </option>
+            <option value="3">O+ </option>
+            <option value="4">O- </option>
+            <option value="4">A+ </option>
+            <option value="4">A- </option>
+            <option value="4">AB+ </option>
+            <option value="4">AB- </option>
+          </select>
+          <div class="invalid-feedback" *ngIf="submitted && formControls.bloodGroup.errors">
+            Blood Group is required
+          </div>
+        </div>
+        <div class="from-group">
+          <label>Birth place: </label>
+          <input formControlName="birthPlace" class="form-control-lg" required  [ngClass]="{'is-invalid': submitted && formControls.birthPlace.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.birthPlace.errors">
+            Birth Place is required
+          </div>
+        </div>
+        <div class="from-group">
+          <label>Height:  </label>
+          <input formControlName="height" class="form-control-lg" required [ngClass]="{'is-invalid': submitted && formControls.height.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.height.errors">
+            Height is required
+          </div>
+        </div>
+        <div class="from-group">
+          <label>Weight: </label>
+          <input formControlName="weight" class="form-control-lg" required [ngClass]="{'is-invalid': submitted && formControls.weight.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.weight.errors">
+            Weight is required
+          </div>
+        </div>
+        <br>
+        <div class="from-group">
+          <input type="submit" class="btn btn-primary" value="Save" (click)="onSubmit()"> &nbsp;&nbsp;&nbsp;
+          <input type="reset" class="btn btn-primary" value="Cancel">
+        </div>
+      </form>
+      <br><br>
+      <div class="alert-alert-info" *ngIf="showSucessMessage">
+        Submitted sucessfully!
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>

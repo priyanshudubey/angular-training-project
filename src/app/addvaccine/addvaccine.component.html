@@ -1,0 +1,86 @@
+<head>
+  <link rel="stylesheet" href="addvaccine.component.css">
+</head>
+<section class="vh-500 gradient-custom">
+  <!-- <router-outlet></router-outlet> -->
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 25px; border-color: burlywood;">
+          <div class="card-body p-4 p-md-5">
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5">Add Vaccination</h1>
+            <hr>
+  <div class="row">
+    <div class="col-md-5">
+      <form [formGroup] = "form" (ngSubmit) = "onSubmit()">
+        <input type="hidden" formControlName="$key">
+        <div class="col-lg-80">
+          <div class="from-group">
+            <label>Name: </label>
+            <input formControlName="name" class="form-control-lg" [ngClass]="{'is-invalid': submitted && formControls.name.errors}">
+            <div class="invalid-feedback" *ngIf="submitted && formControls.name.errors">
+              Name is required
+            </div>
+          </div>
+        </div>
+        <div class="from-group">
+          <label>Date of Birth: </label>
+          <input formControlName="dob" type="date" class="form-control-lg"  [ngClass]="{'is-invalid': submitted && formControls.dob.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.dob.errors">
+            Date of birth is required
+          </div>
+        </div>
+        <br>
+        <div class="from-group">
+          <div class="col-lg-80">
+          <label>Vaccination: </label>
+          <select class="form-control-lg" formControlName="vaccination"  [ngClass]="{'is-invalid': submitted && formControls.vaccination.errors}">
+            <option value="1" disabled>Vaccination</option>
+            <option value="2">Covishield </option>
+            <option value="3">Covaxin </option>
+          </select>
+          <div class="invalid-feedback" *ngIf="submitted && formControls.vaccination.errors">
+            vaccination is required
+          </div>
+        </div>
+        </div>
+        <br>
+        <div class="from-group">
+          <label>Date Administered: </label>
+          <input formControlName="dateAdministered" type="date" class="form-control-lg"  [ngClass]="{'is-invalid': submitted && formControls.dateAdministered.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.dateAdministered.errors">
+            Date of administeration is required
+          </div>
+        </div>
+        <div class="from-group">
+          <label>Brand Name: </label>
+          <input formControlName="brandName" class="form-control-lg"  [ngClass]="{'is-invalid': submitted && formControls.brandName.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.brandName.errors">
+            Brand Name is required
+          </div>
+        </div>
+
+        <div class="from-group">
+          <label>Given at:  </label>
+          <input formControlName="givenAt" type="text" class="form-control-lg" [ngClass]="{'is-invalid': submitted && formControls.givenAt.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.givenAt.errors">
+            Hospital name is required
+          </div>
+        </div>
+        <br>
+        <div class="from-group">
+          <input type="submit" class="btn btn-primary" value="Save" (click)="onSubmit()"> &nbsp;&nbsp;&nbsp;
+          <input type="reset" class="btn btn-primary" value="Cancel">
+        </div>
+      </form>
+      <div class="alert-alert-info" *ngIf="showSucessMessage">
+        Submitted sucessfully!
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
